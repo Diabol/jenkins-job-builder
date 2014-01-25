@@ -463,6 +463,28 @@ def batch_tasks(parser, xml_parent, data):
         XML.SubElement(batch_task, 'name').text = task['name']
         XML.SubElement(batch_task, 'script').text = task['script']
 
+def delivery_pipeline(parser, xml_parent, data):
+    """yaml: delivery_pipeline
+    Requires the Jenkins `Batch Task Plugin.
+    <https://wiki.jenkins-ci.org/display/JENKINS/Batch+Task+Plugin>`_
+
+    :arg str stage: Name of the stage for this job
+    :arg str task: Name of the task for this job
+
+    Example::
+
+      properties:
+        - delivery_pipeline:
+            stage: Build
+            task: Package
+
+    """
+    pipeline = XML.SubElement(xml_parent,
+                              'se.diabol.jenkins.pipeline.'
+                              'PipelineProperty')
+    XML.SubElement(pipeline, 'stageName').text = data.get('stage')
+    XML.SubElement(pipeline, 'taskName').text = data.get('task')
+
 
 class Properties(jenkins_jobs.modules.base.Base):
     sequence = 20
