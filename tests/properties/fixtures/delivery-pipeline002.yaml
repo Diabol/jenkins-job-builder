@@ -1,0 +1,3 @@
+properties:
+  - delivery-pipeline:
+      stage: Stage
