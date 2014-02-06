@@ -175,6 +175,7 @@ setuptools.setup(
              'workspace_cleanup'),
             'xml-summary=jenkins_jobs.modules.publishers:xml_summary',
             'xunit=jenkins_jobs.modules.publishers:xunit',
+            'cucumber-reports=jenkins_jobs.modules.publishers:cucumber_reports',
         ],
         'jenkins_jobs.scm': [
             'git=jenkins_jobs.modules.scm:git',
